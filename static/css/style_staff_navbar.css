@@ -1,17 +1,18 @@
 /* Google Fonts Import Link */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:wght@300&display=swap');
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto Mono', monospace;
 }
 .sidebar{
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
-  width: 300px;
+  width: 310px;
   background: #11101d;
   z-index: 100;
   transition: all 0.5s ease;
@@ -162,7 +163,7 @@
 .sidebar .profile-details{
   position: fixed;
   bottom: 0;
-  width: 300px;
+  width: 310px;
   display: flex;
   align-items: center;
   justify-content: space-between;
