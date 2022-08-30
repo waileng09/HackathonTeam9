@@ -10,8 +10,8 @@ templates = Jinja2Templates(directory=f"{BASEDIR}/templates")
 
 
 @app.route('/')
-def home():
-    return 'Hello world!'
+def customer_home():
+    return render_template('customer page/customer_home.html')
 
 
 @app.route('/recyclingpage')
