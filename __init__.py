@@ -16,4 +16,5 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 templates = Jinja2Templates(directory=f"{BASEDIR}/templates")
 
 if __name__ == '__main__':
+    app.debug = True
     app.run()
