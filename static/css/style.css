@@ -2,10 +2,32 @@
 	box-sizing: border-box;
 }
 
+/** Start Recycling page **/
 .recyclebin{
 padding:100px;
 width:100%;
 }
+
 .recycle_top{
-background-color:blue;
+background-color:#5Cb25d;
 }
+section{
+position:relative;
+width:100%
+height:100vh;
+padding:100px;
+}
+
+#btn{
+text-decoration:none;
+display:inline-block;
+padding:8px 30px;
+border-radius:40px;
+background:#000;
+color:#2b1055;
+font-size:1.5em;
+z-index:9;
+transform:translateY(100px);
+}
+
+/** End Recycling page **/
