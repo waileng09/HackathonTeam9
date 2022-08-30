@@ -1,42 +1,103 @@
+# links to css and javascripts
 <link href="{{ url_for('static', filename='css/style_staff_navbar.css') }}" rel="stylesheet">
-<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/all.css">
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
-</head>
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Website Name</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Dashboard</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">View Recycled Items</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">View Rewards</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">View Trees</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Staff Profile</a>
-            </li>
-          </ul>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-recycle'></i>
+      <span class="logo_name">Website Name</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="#">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Dashboard</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">Recycled Items</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-collection' ></i>
+            <span class="link_name">Recycled Items</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Recycled Items</a></li>
+          <li><a href="#">View Recycled Items</a></li>
+          <li><a href="#">Manage Recycled Items</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-book-alt' ></i>
+            <span class="link_name">Trees Planted</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Trees Planted</a></li>
+          <li><a href="#">View Trees Planted</a></li>
+          <li><a href="#">Manage Trees Planted</a></li>
+        </ul>
+      </li>
+<!--      <li>-->
+<!--        <a href="#">-->
+<!--          <i class='bx bx-pie-chart-alt-2' ></i>-->
+<!--          <span class="link_name">Analytics</span>-->
+<!--        </a>-->
+<!--        <ul class="sub-menu blank">-->
+<!--          <li><a class="link_name" href="#">Analytics</a></li>-->
+<!--        </ul>-->
+<!--      </li>-->
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-plug' ></i>
+            <span class="link_name">Rewards</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">Rewards</a></li>
+          <li><a href="#">View Rewards</a></li>
+          <li><a href="#">Manage Rewards</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+        <!--<img src="image/profile.jpg" alt="profileImg">-->
       </div>
-    </nav>
+      <div class="name-job">
+        <div class="profile_name">Employee Name</div>
+        <div class="job">Job Title</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
 </body>
+<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+  let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+  arrowParent.classList.toggle("showMenu");
+  });
+  }
+</script>
 </html>
-
-
 
