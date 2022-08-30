@@ -4,6 +4,10 @@
     padding-top: 2.5px;
 }
 
+.navbar {
+position: fixed;
+}
+
 body {
   min-width: 800px;
   background: #ff00cc;
