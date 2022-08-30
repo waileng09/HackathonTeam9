@@ -8,15 +8,19 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 templates = Jinja2Templates(directory=f"{BASEDIR}/templates")
 
-
+# customer page routes
 @app.route('/')
 def customer_home():
     return render_template('customer page/customer_home.html')
 
-
 @app.route('/recyclingpage')
 def recyclingform():
     return render_template('customer page/recycling_page.html')
+
+# staff page routes
+@app.route('/staff_dashboard')
+def staff_dashboard():
+    return render_template('staff page/staff_dashboard.html')
 
 
 if __name__ == '__main__':
