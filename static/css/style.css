@@ -1,0 +1,11 @@
+* {
+	box-sizing: border-box;
+}
+
+.recyclebin{
+padding:100px;
+width:100%;
+}
+.recycle_top{
+background-color:blue;
+}
