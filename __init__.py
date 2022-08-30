@@ -16,7 +16,7 @@ def customer_home():
 
 @app.route('/recyclingpage')
 def recyclingform():
-    return render_template('customer page/customer_home.html')
+    return render_template('customer page/recycling_page.html')
 
 
 if __name__ == '__main__':
