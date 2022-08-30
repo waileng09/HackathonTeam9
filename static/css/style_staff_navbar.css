@@ -11,15 +11,13 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 260px;
+  width: 300px;
   background: #11101d;
   z-index: 100;
   transition: all 0.5s ease;
   padding-top: 10px;
 }
-.sidebar.close{
-  width: 78px;
-}
+
 .sidebar .logo-details{
   height: 60px;
   width: 100%;
@@ -191,9 +189,7 @@
   background: #1d1b31;
   transition: all 0.5s ease;
 }
-.sidebar.close .profile-details img{
-  padding: 10px;
-}
+
 .sidebar .profile-details .profile_name,
 .sidebar .profile-details .job{
   color: #fff;
@@ -201,11 +197,7 @@
   font-weight: 500;
   white-space: nowrap;
 }
-.sidebar.close .profile-details i,
-.sidebar.close .profile-details .profile_name,
-.sidebar.close .profile-details .job{
-  display: none;
-}
+
 .sidebar .profile-details .job{
   font-size: 12px;
 }
