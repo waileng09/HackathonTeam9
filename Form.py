@@ -12,3 +12,11 @@ class CreateCustomerForm(Form):
     birthday = DateField('birthday', format='%Y-%m-%d')
     phone_num = StringField('Phone Number', [validators.Length(min=8, max=8), validators.DataRequired()])
     address = StringField('Address', [validators.Length(min=10, max=150), validators.DataRequired()])
+
+
+class RecyclingForm(Form):
+    date = DateField('Date of Recycle',format='%d-%m-%Y',)
+    type = RadioField('Type of Waste', choices=[('Plastic'), ('Metal'),('Glass'),('Paper'),('Batteries'),('Other')],)
+    weight = DecimalField('Weight of Waste (kg):',[validators.number_range(min=0.1)],default=0.1,)
+    description = StringField('Please briefly decribe the waste.',[validators.Length(min=5, max=150), validators.DataRequired()])
+    image_1 = FileField('Please upload a pictures for verification.', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'], validators.DataRequired())])
