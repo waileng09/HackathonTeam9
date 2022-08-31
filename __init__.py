@@ -81,7 +81,6 @@ def recycling_point():
 def contact():
     return render_template('customer page/contact.html')
 
-
 # staff page routes
 @app.route('/staff_dashboard')
 def staff_dashboard():
