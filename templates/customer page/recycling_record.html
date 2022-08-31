@@ -1,30 +1,46 @@
 {% extends "customer page/customer_base.html" %}
-{% block title %}Library Loan System - Product{% endblock %}
+{% block title %}Records{% endblock %}
 
 {% block content %}
 <body>
-  <table class="table ">
+<h2>hello</h2>
+<div class="container " >
+    <div class="m-5">
+  <table class="table">
             <thead>
             <tr>
-                <th> ID</th>
-                <th>date</th>
-                <th>type</th>
-                <th>weight</th>
-                <th>description</th>
-                <th>photos</th>
+                <th>Form ID</th>
+                <th>Date created</th>
+                <th>Recycling point</th>
+                <th>Recycle Type</th>
+                <th>Weight of Item</th>
+                <th>Description of item</th>
+                <th>Picture for Verification</th>
+                <th>Process</th>
             </tr>
             </thead>
             <tbody>
             {% for item in records_list %}
-            <tr>
-                <td>{{ records_list[item]["type"] }}</td>
-
-                <td><img alt="{{product_name}}" height="500" src="{{url_for('static',filename='img/upload_img/'+ binss.png)}}"
-                     width="500"></td>
+            <tr style="text-align: center;">
+                <td>{{ item["id"] }}</td>
+                <td>{{ item["date_created"] }}</td>
+                <td>{{ item["location"] }}</td>
+                <td>{{ item["type"] }}</td>
+                <td>{{item["weight"] }}</td>
+                <td>{{ item["description"] }}</td>
+                <td><img alt="{{item ['profile_img'] }}" src="{{url_for('static',filename='img/upload_img/'+ item ['profile_img'])}}"
+                     width="auto" height="200px"></td>
+                <td>  <form action="{{url_for('delete_product', id=item.get_product_id())}}" method="POST">
+                        <button class="btn btn-danger" data-bs-target="#myModal_{{item.get_product_id()}}"
+                                data-bs-toggle="modal"
+                                type="button">
+                            Delete</td>
 
             </tr>
             {% endfor %}
             </tbody>
         </table>
+    </div>
+    </div>
 </body>
 {% endblock %}
