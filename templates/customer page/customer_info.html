@@ -1,0 +1,50 @@
+{% extends "customer page/customer_base.html" %}
+{% block title %}Users information{% endblock %}
+
+{% block content %}
+{% block navbar %}
+{% include 'customer page/customer_sidebar.html' %}
+{% endblock %}
+
+<style>
+
+</style>
+
+<script src="https://kit.fontawesome.com/f8b6569b3f.js" crossorigin="anonymous"></script>
+
+<img src="https://www.dentalcareprofessionals.com.au/wp-content/uploads/2015/12/iStock_000021268444_Full.jpg" style=
+        "width:250px; height: 150px; margin-left: 47%; margin-top: 10%; background-size: cover;
+ display: block;
+ border-radius: 125px;
+ -webkit-border-radius: 125px;
+ -moz-border-radius: 125px;">
+
+<h1 class="display-4" style="margin-left: 10%; font-size: 25px; font-weight: bold; margin-top:3%; text-align:center">User Profile</h1>
+
+<div class="col-lg-8" style="margin-top:10px; margin-left: 40%; width:550px;">
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Full Name</p>
+              </div>
+              <div class="col-sm-9">
+                {{ name }}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0">Email</p>
+              </div>
+              <div class="col-sm-9">
+                {{ email }}
+              </div>
+            </div>
+            <hr>
+          </div>
+        </div>
+
+</div>
+{% endblock %}
+
