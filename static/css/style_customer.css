@@ -291,6 +291,11 @@ padding: 5px 0;
   color: white;
 }
 
+  #map {
+  margin-left: 18%;
+  margin-bottom: 5%;
+  }
+
 /* contact page css */
     #contactus-banner h2 {
     color: #666;

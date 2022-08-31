@@ -1,6 +1,6 @@
 <link href="{{ url_for('static', filename='css/style_customer.css') }}" rel="stylesheet">
 {% extends "customer page/customer_base.html" %}
-{% block title %}Recycling Points{% endblock %}
+{% block title %}E-cycle - Recycling Points{% endblock %}
 {% block content %}
 <div id="recyclingpoints-banner">
   <h2>Recycling Points</h2>
@@ -18,7 +18,8 @@
   If the item you wish to recycle is still in good working condition, you might want to consider donating or selling them. Items can be dropped off at several collection and donation points.
 </div>
 
-<a name="rp-map"/>
-<img src="/static/img/binss.png"/>
-
+<div id="map">
+  <a name="rp-map"/>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15954.66949291662!2d103.8809839929282!3d1.376255903639061!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da164b00dace1d%3A0xd6e3bc1af6699c98!2sHougang%20Ave%202%20Bin%20Centre!5e0!3m2!1sen!2ssg!4v1661953271537!5m2!1sen!2ssg" width="900" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
 {% endblock %}
