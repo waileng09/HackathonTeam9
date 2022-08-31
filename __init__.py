@@ -18,7 +18,7 @@ def recyclingform():
     return render_template('customer page/recycling_page.html')
 
 @app.route('/contact')
-def recyclingform():
+def contact():
     return render_template('customer page/contact.html')
 
 # staff page routes
