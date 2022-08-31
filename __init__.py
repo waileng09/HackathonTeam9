@@ -27,6 +27,12 @@ def staff_dashboard():
     return render_template('staff page/staff_dashboard.html')
 
 
+# Tree page
+@app.route('/tree')
+def tree():
+    return render_template('')
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
