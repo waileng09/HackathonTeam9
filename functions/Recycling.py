@@ -1,5 +1,8 @@
+import shelve
+
+
 class Recycling:
-    def __int__(self,id,date,type,weight,description,image):
+    def __int__(self, id, date, type, weight, description, image):
         self.__id = id
         self.__date = date
         self.__type = type
@@ -20,7 +23,7 @@ class Recycling:
     def get_type(self): return self.__type
 
     def set_weight(self, weight):
-        self.__weight= weight
+        self.__weight = weight
 
     def get_weight(self): return self.__weight
 

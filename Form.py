@@ -15,8 +15,8 @@ class CreateCustomerForm(Form):
 
 
 class RecyclingForm(Form):
-    date = DateField('Date of Recycle',format='%d-%m-%Y',)
+    date = DateField('Date of Recycle',format='%Y-%m-%d',)
     type = RadioField('Type of Waste', choices=[('Plastic'), ('Metal'),('Glass'),('Paper'),('Batteries'),('Other')],)
-    weight = DecimalField('Weight of Waste (kg):',[validators.number_range(min=0.1)],default=0.1,)
+    weight = DecimalField('Weight of Waste (kg):',[validators.number_range(min=0)])
     description = StringField('Please briefly decribe the waste.',[validators.Length(min=5, max=150), validators.DataRequired()])
     image_1 = FileField('Please upload a pictures for verification.', validators=[FileAllowed(['jpg', 'png', 'gif', 'jpeg'], validators.DataRequired())])

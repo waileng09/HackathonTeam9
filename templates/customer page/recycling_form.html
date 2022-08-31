@@ -6,5 +6,127 @@
 </head>
 <body>
 
-</body>
+</body>{% extends "customer page/customer_base.html" %}
+{% block title %}Recycling Form{% endblock %}
+
+{% block content %}
+{% from "includes/_formHelper.html" import render_field %}
+<div class="row m-5" >
+    <div class="form-box col-sm-10 border " style="margin-top:50px;">
+            <h2 class="display-7">Waste Recycling Form</h2>
+
+            <form action="{{url_for('create_form')}}" autocomplete="off" enctype="multipart/form-data" method="POST">
+
+                <div class="form-basic-info form-group  container " >
+                   <div class="form-group col" style="margin-top:10px;" id="otherInput">
+                        {{ render_field(form.date, class="form-control") }}
+                    </div>
+                    <div class="form-group col" style="height:200px;">
+                        {{ render_field(form.type, class="form-control",style="list-style-type:none;height:180px;") }}
+                    </div>
+                    <div class="form-group col" style="margin-top:10px;" >
+                        {{ render_field(form.weight ,class="form-control") }}
+
+                    </div>
+                    <div class="form-group col" style="margin-top:10px;">
+                        {{ render_field(form.description, class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class=" border col" >
+                        <input accept="image/*"  id="profile-img-1" name="img1" type="file"  required>
+<img src=""  id="profile-img-tag-1" alt=""  style="width:130px;margin:10px 100px;border-style: none;border:0px; " class="col-3">
+                    </div>
+                </div>
+                <hr>
+                    <br>
+                    <input class="btn" name="sub"
+                           style="background-color:#F8933C;color:white;float:right;margin-bottom:20px;" type="submit"
+                           value="Submit"/>
+                    <br>
+                </form>
+
+    </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+const img1 = document.getElementById("profile-img-1");
+
+const img2 = document.getElementById("profile-img-2");
+
+const img3 = document.getElementById("profile-img-3");
+
+
+
+img1.addEventListener("change", function () {
+  getImgData1();
+});
+img2.addEventListener("change", function () {
+  getImgData2();
+});
+img3.addEventListener("change", function () {
+  getImgData3();
+});
+
+
+    function getImgData1() {
+  const files = img1.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      $('#profile-img-tag-1').attr('src', this.result);
+      $("#profile-img-tag-1").css("height","150px");
+    });
+  }
+}
+
+  function getImgData2() {
+  const files = img2.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      $('#profile-img-tag-2').attr('src', this.result);
+      $("#profile-img-tag-2").css("height","150px");
+    });
+  }
+}
+
+  function getImgData3() {
+  const files = img3.files[0];
+  if (files) {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(files);
+    fileReader.addEventListener("load", function () {
+      $('#profile-img-tag-3').attr('src', this.result);
+       $("#profile-img-tag-3").css("height","150px");
+    });
+  }
+}
+
+
+$(document).ready(function() {
+  $('#otherInput').hide();
+  $('#yes').change(function() {
+    if ($('#yes').val() == 'Food & Beverages') {
+      $('#otherInput').show();
+    } else {
+      $('#otherInput').hide();
+    }
+  });
+});
+
+var today = new Date();
+var dd = String(today.getDate()).padStart(2, '0');
+var mm = String(today.getMonth() + 1).padStart(2, '0');
+var yyyy = today.getFullYear();
+
+today = yyyy + '-' + mm + '-' + dd;
+$('#date_picker').attr('min',today);
+
+</script>
+{% endblock %}
+
 </html>
