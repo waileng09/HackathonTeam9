@@ -1,0 +1,247 @@
+{% extends "customer_base.html" %}
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+<section id="contactus-banner">
+  <h2>Contact Us</h2>
+</section>
+
+<section id="contactus">
+  <div class="getin">
+    <h2>Get in touch</h2>
+    <p>Looking for help? Fill the form and we will get in touch with you soon.</p>
+
+    <div class="getin-details">
+      <h3>Location</h3>
+      <div>
+        <i class="fas fa-map-marker-alt get"></i>
+          <p>#03-08 Beauty World Centre, 144 Upper Bukit Timah Rd, Singapore 588177</p>
+      </div>
+      <h3>Contact Number</h3>
+      <div>
+        <i class="fas fa-phone-alt get"></i>
+        <p><a href="tel:+6564698070">+65 6469 8070</a></p>
+      </div>
+      <h3>Email Address</h3>
+      <div>
+        <i class="fas fa-envelope get"></i>
+          <p><a href="mailto:beautyworldbookcentre@email.com">beautyworldbookcentre@email.com</a></p>
+      </div>
+      <h3>Follow Us</h3>
+      <div class="links">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin-in"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="form">
+    <h4>Let's Connect</h4>
+    <p>Send Us A Message</p>
+    <div class="form-row">
+      <input type="text" placeholder="Your Name">
+      <input type="text" placeholder="Your Email">
+    </div>
+    <div class="form-col">
+      <input type="text" placeholder="Subject">
+    </div>
+    <div class="form-col">
+      <textarea name="" id="" cols="30" rows="8" placeholder="How can we help?"></textarea>
+    </div>
+    <div class="form-col">
+      <button>Send Message</button>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.6762494186883!2d103.77466221965064!3d1.3420868482037414!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31da108a6a44061f%3A0xa6b822d56a052d2f!2sSingapore%20588177!5e0!3m2!1sen!2ssg!4v1642338528935!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+</section>
+
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    }
+
+    #contactus-banner h2 {
+    color: #58D68D;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding-top: 3%;
+    text-align: center;
+    }
+
+    .links {
+    margin-top: 18px;
+    }
+
+    .links i {
+    padding: 10px 13px;
+    border: 1px solid black;
+    cursor: pointer;
+    transition: 0.3s ease;
+    }
+
+    .links i:hover {
+    background-color: #58D68D;
+    color: #fff;
+    border: 1px solid black;
+    cursor: pointer;
+    }
+
+    #contactus {
+    width: 100%;
+    margin-left: 5%;
+    padding: 4vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    }
+
+    #contactus .getin {
+    width: 35%;
+    }
+
+    #contactus .getin h2 {
+    color: #58D68D;
+    font-size: 30px;
+    font-weight: 600;
+    line-height: .8;
+    margin-bottom: 16px;
+    }
+
+    #contactus .getin p {
+    color: #686875;
+    line-height: 24px;
+    margin-bottom: 33px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e5e4ed;
+    font-size: 17px;
+    }
+
+    #contactus .getin a {
+    color: #686875;
+    text-decoration: none;
+    }
+
+    #contactus .getin h3 {
+    color: #58D68D;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 26px;
+    margin-bottom: 15px;
+    }
+
+    #contactus .getin .getin-details div {
+    display: flex;
+    }
+
+    #contactus .getin .getin-details div .get {
+    font-size: 17px;
+    line-height: 22px;
+    color: #58D68D;
+    margin-right: 20px;
+    }
+
+    #contactus .getin .getin-details div p {
+    font-size: 15px;
+    border-bottom: none;
+    line-height: 22px;
+    margin-bottom: 15px;
+    }
+
+    #contactus .getin .getin-details .links i {
+    margin-right: 8px;
+    font-size: 18px;
+    }
+
+    #contactus .form {
+    width: 50%;
+    background-color: #F7F6FA;
+    padding: 40px;
+    border-radius: 10px;
+    margin-right: 10%;
+    }
+
+    #contactus .form h4 {
+    font-size: 24px;
+    color: #58D68D;
+    line-height: 30px;
+    margin-bottom: 8px;
+    }
+
+    #contactus .form p {
+    color: #686875;
+    line-height: 24px;
+    padding-bottom: 25px;
+    font-size: 16px;
+    }
+
+    #contactus .form .form-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    }
+
+    #contactus .form .form-row input {
+    width: 48%;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+    border: none;
+    background-color: #fff;
+    color: #7E7C87;
+    outline: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    }
+
+    #contactus .form .form-col input,
+    #contactus .form .form-col textarea {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 3px;
+    border: none;
+    background-color: #fff;
+    color: #7E7C87;
+    outline: none;
+    padding: 20px 30px;
+    margin-bottom: 20px;
+    }
+
+    #contactus .form button {
+    font-size: 15px;
+    padding: 13px 25px;
+    background-color: #58D68D;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    }
+
+    #contactus .form button:hover {
+    background-color: #2ECC71;
+    }
+
+    #map {
+    width: 90%;
+    height: 70vh;
+    margin-bottom: 8vw;
+    margin-left: 10%;
+    }
+
+     #map iframe {
+    width: 90%;
+    height: 100%;
+    }
+
+</style>
+{% endblock %}
