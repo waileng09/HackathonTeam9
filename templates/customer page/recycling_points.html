@@ -1,0 +1,23 @@
+<link href="{{ url_for('static', filename='css/style_customer.css') }}" rel="stylesheet">
+{% extends "customer page/customer_base.html" %}
+{% block title %}Recycling Points{% endblock %}
+{% block content %}
+<div id="recyclingpoints-banner">
+  <h2>Recycling Points</h2>
+</div>
+<h4>Where to Recycle in Singapore</h4>
+<img class="rp-img" src="/static/img/recycling_bins.png" alt="" width="400" height="267">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet gravida urna. Curabitur porttitor orci sed neque tempus consectetur. Aenean eu tempor nibh. Fusce et velit in tortor scelerisque ultricies id ut dolor. Phasellus non enim sit amet dui iaculis ornare eu eu mauris. Phasellus id ipsum dignissim, volutpat turpis eget, varius eros. Etiam non scelerisque dui. Vivamus congue aliquet elit mollis elementum. Sed eget lacus tellus. Sed eu tincidunt ligula, id ultrices ante. Quisque commodo nisi erat, ac posuere velit elementum sed. Vivamus blandit molestie tellus et suscipit.</p>
+
+<img class="rp-img" src="/static/img/ewastebin.png" alt="" width="400" height="267">
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sit amet gravida urna. Curabitur porttitor orci sed neque tempus consectetur. Aenean eu tempor nibh. Fusce et velit in tortor scelerisque ultricies id ut dolor. Phasellus non enim sit amet dui iaculis ornare eu eu mauris. Phasellus id ipsum dignissim, volutpat turpis eget, varius eros. Etiam non scelerisque dui. Vivamus congue aliquet elit mollis elementum. Sed eget lacus tellus. Sed eu tincidunt ligula, id ultrices ante. Quisque commodo nisi erat, ac posuere velit elementum sed. Vivamus blandit molestie tellus et suscipit.</p>
+
+<style>
+  .rp-img {
+   width: 100%;
+   height: auto;
+  }
+</style>
+
+
+{% endblock %}

@@ -15,7 +15,7 @@ text-align: center;
 }
 
 .banner-area {
-background-image: url(static/img/home_banner.jpg);
+background-image: url(/static/img/homepage_banner.jpg);
 background-size: cover;
 background-position: center;
 top: 62px;

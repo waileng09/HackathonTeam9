@@ -73,6 +73,9 @@ def retrieve_recycling_record():
         print(i)
     return render_template('customer page/recycling_record.html', count=len(records_list), records_list=records_list)
 
+@app.route('/recycling_point')
+def recycling_point():
+    return render_template('customer page/recycling_point.html')
 
 @app.route('/contact')
 def contact():
