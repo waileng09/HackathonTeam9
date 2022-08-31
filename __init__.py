@@ -13,7 +13,7 @@ templates = Jinja2Templates(directory=f"{BASEDIR}/templates")
 def customer_home():
     return render_template('customer page/customer_home.html')
 
-@app.route('/recyclingpage')
+@app.route('/recycling_page')
 def recyclingform():
     return render_template('customer page/recycling_page.html')
 
