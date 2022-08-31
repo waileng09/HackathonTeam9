@@ -3,6 +3,7 @@ from fastapi.templating import Jinja2Templates
 from uuid import uuid4
 import os, shelve
 from Form import RecyclingForm
+from functions import RecyclingForm
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 
 app = Flask(__name__)
@@ -11,6 +12,11 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 db_recycle = f"{BASEDIR}/database/recycling_form"
 
 templates = Jinja2Templates(directory=f"{BASEDIR}/templates")
+
+app.config['UPLOADED_PHOTOS_DEST'] = "static/img"
+photos = UploadSet('photos', IMAGES)
+configure_uploads(app, photos)
+patch_request_class(app)
 
 # customer page routes
 @app.route('/')
@@ -34,17 +40,12 @@ def create_form():
             print("Error in retrieving Products from product.db.")
         uuid = str(uuid4())[:6]
 
-        image_1 = photos.save(request.files.get('img1'), name="product_" + secrets.token_hex(1) + ".")
-        image_2 = photos.save(request.files.get('img2'), name="product_" + secrets.token_hex(1) + ".")
-        image_3 = photos.save(request.files.get('img3'), name="product_" + secrets.token_hex(1) + ".")
+        image_1 = photos.save(request.files.get('img1'), name="picture_of_" +uuid)
 
-        product = RecyclingForm.Recycling(uuid, create_product_form.product_name.data, create_product_form.product_price.data,
-                                  create_product_form.product_brand.data, create_product_form.product_description.data,
-                                  create_product_form.product_category.data, image_1, image_2, image_3)
+        product = RecyclingForm.Recycling(uuid, RecyclingForm.date.data, RecyclingForm.type.data,
+                                  RecyclingForm.weight.data, RecyclingForm.description.data,image_1)
         quantity = create_product_form.product_quantity.data
         print(request.form.get('date'))
-        if create_product_form.product_category.data == "Food & Beverages":
-            product.set_expiry(request.form.get('date'))
         product.set_stock(quantity)
         product_dict[uuid] = product
         db["Products"] = product_dict
