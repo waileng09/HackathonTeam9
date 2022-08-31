@@ -1,10 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "customer page/customer_base.html" %}
+{% block title %}Library Loan System - Product{% endblock %}
 
+{% block content %}
+<body>
+  <table class="table ">
+            <thead>
+            <tr>
+                <th> ID</th>
+                <th>date</th>
+                <th>type</th>
+                <th>weight</th>
+                <th>description</th>
+                <th>photos</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in records_list %}
+            <tr>
+                <td>{{ item.get_id() }}</td>
+                <td>{{ item.get_date() }}</td>
+                <td>{{ item.get_type() }}</td>
+                <td>{{ item.get_weight() }}</td>
+                <td>{{ item.get_description() }}</td>
+                <td><img alt="{{product_name}}" height="500" src="{{url_for('static',filename='img/upload_img/'+ binss.png)}}"
+                     width="500"></td>
+
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 </body>
-</html>
+{% endblock %}
