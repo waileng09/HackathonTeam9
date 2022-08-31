@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, session, current_app, flash
+from flask import Flask, render_template, request, redirect, url_for
 from fastapi.templating import Jinja2Templates
 from uuid import uuid4
 import os, shelve
 from Form import RecyclingForm
-from functions import RecyclingForm
+from functions import ClassRecycling
 from flask_uploads import UploadSet, configure_uploads, IMAGES, patch_request_class
 
 app = Flask(__name__)
@@ -30,29 +30,42 @@ def recyclingform():
 @app.route('/recycling_form', methods=['GET', 'POST'])
 def create_form():
     encoded_img_data = ""
-    create_product_form = RecyclingForm(request.form)
-    if request.method == "POST" and create_product_form.validate():
-        product_dict = {}
+    create_recycling_form = RecyclingForm(request.form)
+    if request.method == "POST" and create_recycling_form.validate():
+        recycling_dict = {}
         db = shelve.open(db_recycle, "c")
         try:
-            product_dict = db["Products"]
+            recycling_dict = db["Recycling_database"]
         except:
-            print("Error in retrieving Products from product.db.")
+            print("Error in retrieving records from recycling.db .")
         uuid = str(uuid4())[:6]
 
         image_1 = photos.save(request.files.get('img1'), name="picture_of_" +uuid)
 
-        product = RecyclingForm.Recycling(uuid, RecyclingForm.date.data, RecyclingForm.type.data,
-                                  RecyclingForm.weight.data, RecyclingForm.description.data,image_1)
-        quantity = create_product_form.product_quantity.data
-        print(request.form.get('date'))
-        product.set_stock(quantity)
-        product_dict[uuid] = product
-        db["Products"] = product_dict
+        recycling_item = ClassRecycling.Recycling(uuid, create_recycling_form.date.data, create_recycling_form.type.data,
+                                  create_recycling_form.weight.data, create_recycling_form.description.data,image_1)
+        recycling_dict[uuid] = recycling_item
+        db["Recycling_database"] = recycling_dict
         db.close()
-        return redirect(url_for('retrieve_product'))
-    return render_template('Product/createProduct.html', form=create_product_form,
+        return redirect(url_for('recycling_record'))
+    return render_template('customer page/recycling_form', form=RecyclingForm,
                            img_data=encoded_img_data)
+
+@app.route('/recycling_record')
+def retrieve_recycling_record():
+    recycling_dict = {}
+    try:
+        db = shelve.open(db_recycle, "r")
+        recycling_dict = db["Recycling_database"]
+    except:
+        db = shelve.open(db_recycle, "n")
+    db.close()
+    records_list = []
+
+    for item in recycling_dict:
+        product = recycling_dict.get(item)
+        records_list.append(product)
+    return render_template('customer page/productbackend.html', count=len(records_list), records_list=records_list)
 
 @app.route('/contact')
 def contact():
