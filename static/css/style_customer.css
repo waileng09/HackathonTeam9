@@ -167,8 +167,14 @@ margin-top: 5%;
 
 
 .recycle_top{
-background-color:#5Cb25d;
+background-color:#FDF2E2;
+padding:50px;
 }
+
+.recyclebin{
+width:100%;
+}
+
 section{
 position:relative;
 width:100%
