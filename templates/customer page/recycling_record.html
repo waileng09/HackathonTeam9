@@ -17,11 +17,8 @@
             <tbody>
             {% for item in records_list %}
             <tr>
-                <td>{{ item.get_id() }}</td>
-                <td>{{ item.get_date() }}</td>
-                <td>{{ item.get_type() }}</td>
-                <td>{{ item.get_weight() }}</td>
-                <td>{{ item.get_description() }}</td>
+                <td>{{ records_list[item]["type"] }}</td>
+
                 <td><img alt="{{product_name}}" height="500" src="{{url_for('static',filename='img/upload_img/'+ binss.png)}}"
                      width="500"></td>
 

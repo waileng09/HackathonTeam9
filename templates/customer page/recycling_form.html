@@ -11,47 +11,53 @@
 
 {% block content %}
 {% from "includes/_formHelper.html" import render_field %}
-<div class="row m-5" >
-    <div class="form-box col-sm-10 border " style="margin-top:50px;">
-            <h2 class="display-7">Waste Recycling Form</h2>
-
-            <form action="{{url_for('create_form')}}" autocomplete="off" enctype="multipart/form-data" method="POST">
-
-                <div class="form-basic-info form-group  container " >
-                   <div class="form-group col" style="margin-top:10px;" id="otherInput">
-                        {{ render_field(form.date, class="form-control") }}
+<div class="container-fluid vh-100">
+   <div class="row h-100 justify-content-center align-items-center">
+       <div class="col-lg-3 col-md-2 "></div>
+       <div class="col-lg-6 col-md-8 mt-4">
+           <h3 class="mb-5">Waste Recycling Form</h3>
+           <form class="row g-3 shadow p-3 mb-5 bg-white rounded" method="POST" action="{{url_for('create_form')}}" autocomplete="off" enctype="multipart/form-data">
+               <div class="col-12">
+                   <label for="location" class="form-label">Recycling Point</label>
+                   <input type="text" required class="form-control" id="location" name="location" required>
+               </div>
+             <div class="col-12">
+                   <input type="radio"  class="" id="type1" name="type" value="Plastic" required>
+                    <label   class="form-label">Plastic</label>
+                 <input type="radio"  class="" id="type2" name="type" value="Paper" required>
+                    <label  class="form-label">Paper</label>
+                 <input type="radio"  class="" id="type3" name="type" value="Glass" required>
+                    <label  class="form-label">Glass</label>
+                 <input type="radio"  class="" id="type4" name="type" value="Metal" required>
+                    <label  class="form-label">Metal</label>
+                 <input type="radio"  class="" id="type5" name="type" value="Other" required>
+                    <label  class="form-label">Other</label>
+             </div>
+               <div class="col-12">
+                   <label  class="form-label">Weight of Item: (kg)</label>
+                   <input  type="text" class="form-control" id="weight" name="weight"
+                              required>
+               </div>
+               <div class="col-12">
+                   <label  class="form-label">Please briefly describe the recycled item.</label>
+                   <textarea rows="3" type="text" class="form-control" id="description" name="description"
+                              required></textarea>
+               </div>
+                <div class="col-12 " >
+                        <input  accept="image/*"  id="profile_img" name="img1" type="file"  required>
+<img src=""  id="profile-img-tag-1" alt=""  style="width:auto;margin:10px 100px;border-style: none;border:0px; " class="col-2">
                     </div>
-                    <div class="form-group col" style="height:200px;">
-                        {{ render_field(form.type, class="form-control",style="list-style-type:none;height:180px;") }}
-                    </div>
-                    <div class="form-group col" style="margin-top:10px;" >
-                        {{ render_field(form.weight ,class="form-control") }}
-
-                    </div>
-                    <div class="form-group col" style="margin-top:10px;">
-                        {{ render_field(form.description, class="form-control") }}
-                    </div>
-                </div>
-
-                <div class="form-group row">
-                    <div class=" border col" >
-                        <input accept="image/*"  id="profile-img-1" name="img1" type="file"  required>
-<img src=""  id="profile-img-tag-1" alt=""  style="width:130px;margin:10px 100px;border-style: none;border:0px; " class="col-3">
-                    </div>
-                </div>
-                <hr>
-                    <br>
-                    <input class="btn" name="sub"
-                           style="background-color:#F8933C;color:white;float:right;margin-bottom:20px;" type="submit"
-                           value="Submit"/>
-                    <br>
-                </form>
-
-    </div>
+               <div class="col-12">
+                   <button class="btn btn-secondary" type="submit">Submit</button>
+               </div>
+           </form>
+       </div>
+       <div class="col-lg-3 col-md-2"></div>
+   </div>
 </div>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
-const img1 = document.getElementById("profile-img-1");
+const img1 = document.getElementById("profile_img");
 
 const img2 = document.getElementById("profile-img-2");
 
@@ -107,24 +113,7 @@ img3.addEventListener("change", function () {
 }
 
 
-$(document).ready(function() {
-  $('#otherInput').hide();
-  $('#yes').change(function() {
-    if ($('#yes').val() == 'Food & Beverages') {
-      $('#otherInput').show();
-    } else {
-      $('#otherInput').hide();
-    }
-  });
-});
 
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0');
-var yyyy = today.getFullYear();
-
-today = yyyy + '-' + mm + '-' + dd;
-$('#date_picker').attr('min',today);
 
 </script>
 {% endblock %}

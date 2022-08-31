@@ -6,8 +6,10 @@ from uuid import uuid4
 import os, shelve
 from Form import RecyclingForm
 from functions import Recycling
+from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
 from datetime import datetime, timedelta,date
+from starlette.requests import Request
 
 app = Flask(__name__)
 BASEDIR = os.getcwd()
@@ -20,23 +22,34 @@ app.config['UPLOADED_PHOTOS_DEST'] = "static/img/upload_img"
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
 
-
 # customer page routes
 @app.route('/')
 def customer_home():
     return render_template('customer page/customer_home.html')
 
-
 @app.route('/recycling_page')
 def recyclingform():
     return render_template('customer page/recycling_page.html')
 
+@app.get("/recycling_page")
+def page_home(request: Request):
+    db = shelve.open(db_recycle, "c")
+    try:
+        recycling_dict = db["Recycling_database"]
+    except:
+        print("Error in retrieving records from recycling.db .")
+
+    notes = dict(db)  # Retrieval of all the notes
+
+    db.close()
+    return templates.TemplateResponse(
+        "customer page/home.html", {"request": request, "title": "Home", "notes": notes}
+    )
 
 @app.route('/recycling_form', methods=['GET', 'POST'])
 def create_form():
     encoded_img_data = ""
-    create_recycling_form = RecyclingForm(request.form)
-    if request.method == "POST" and create_recycling_form.validate():
+    if request.method == "POST":
         recycling_dict = {}
         db = shelve.open(db_recycle, "c")
         try:
@@ -44,19 +57,34 @@ def create_form():
         except:
             print("Error in retrieving records from recycling.db .")
         uuid = str(uuid4())[:6]
-        image_1 = photos.save(request.files.get('img1'), name="photo_" + uuid)
-
-        recycling_item = Recycling.Recycling(uuid,create_recycling_form.date.data, create_recycling_form.type.data,
+        image_1 = photos.save(request.files.get('img1'), name="recycling_of_" + uuid)
+        '''recycling_item = Recycling.Recycling(uuid, create_recycling_form.date.data, create_recycling_form.type.data,
                                              create_recycling_form.weight.data, create_recycling_form.description.data,
-                                             image_1)
-        #set_id = recycling_item.set_id(uuid)
-        recycling_dict[uuid] = recycling_item
+                                             image_1)'''
+        # set_id = recycling_item.set_id(uuid)
+        print(request.form['location'])
+        recycling_dict[uuid] = {"id": uuid,
+                                "location": request.form['location'],
+                                "type": request.form['type'],
+                                "weight": request.form['weight'],
+                                "description": request.form['description'],
+                                "profile_img": image_1,
+                                "date_created": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
+
+                                }
         db["Recycling_database"] = recycling_dict
         db.close()
         return redirect(url_for('retrieve_recycling_record'))
-    return render_template('customer page/recycling_form.html', form=create_recycling_form,
+    return render_template('customer page/recycling_form.html',
                            img_data=encoded_img_data)
 
+'''
+@app.get("/recycling_form")  # Return HTML file
+def page_create_notes(request: Request):
+    return templates.TemplateResponse(
+        "create_notes.html", {"request": request, "title": "Create"}
+    )
+'''
 
 @app.route('/recycling_record')
 def retrieve_recycling_record():
@@ -72,13 +100,14 @@ def retrieve_recycling_record():
     for item in recycling_dict:
         product = recycling_dict.get(item)
         records_list.append(product)
-    for i in records_list:
-        print(i)
-    return render_template('customer page/recycling_record.html', count=len(records_list), records_list=records_list)
+
+    return render_template('customer page/recycling_record.html', count=len(records_list),
+                           records_list=records_list)
 
 @app.route('/recycling_point')
 def recycling_point():
     return render_template('customer page/recycling_point.html')
+
 
 @app.route('/contact')
 def contact():
@@ -127,7 +156,7 @@ def create_user():
                                      create_customer_form.email_address.data,
                                      create_customer_form.password.data, create_customer_form.password2.data, create_customer_form.type.data, create_customer_form.birthday.data)
 
-
+            from flask import session
             session['logged_in'] = True
             if customer.get_type() == 'Customer':
                 print('added')
@@ -151,6 +180,7 @@ def create_user():
 
         else:
             print("password is different")
+            from flask import flash
             flash("password is different", category='error')
             return render_template('customer page/create_acc.html', form=create_customer_form)
         #fix
