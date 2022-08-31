@@ -23,9 +23,11 @@ configure_uploads(app, photos)
 def customer_home():
     return render_template('customer page/customer_home.html')
 
+
 @app.route('/recycling_page')
 def recyclingform():
     return render_template('customer page/recycling_page.html')
+
 
 @app.route('/recycling_form', methods=['GET', 'POST'])
 def create_form():
@@ -39,17 +41,19 @@ def create_form():
         except:
             print("Error in retrieving records from recycling.db .")
         uuid = str(uuid4())[:6]
+        image_1 = photos.save(request.files.get('img1'), name="photo_" + uuid)
 
-        image_1 = photos.save(request.files.get('img1'))
-
-        recycling_item = Recycling.Recycling(uuid, create_recycling_form.date.data, create_recycling_form.type.data,
-                                  create_recycling_form.weight.data, create_recycling_form.description.data,image_1)
+        recycling_item = Recycling.Recycling(uuid,create_recycling_form.date.data, create_recycling_form.type.data,
+                                             create_recycling_form.weight.data, create_recycling_form.description.data,
+                                             image_1)
+        #set_id = recycling_item.set_id(uuid)
         recycling_dict[uuid] = recycling_item
         db["Recycling_database"] = recycling_dict
         db.close()
         return redirect(url_for('retrieve_recycling_record'))
     return render_template('customer page/recycling_form.html', form=create_recycling_form,
                            img_data=encoded_img_data)
+
 
 @app.route('/recycling_record')
 def retrieve_recycling_record():
@@ -65,11 +69,15 @@ def retrieve_recycling_record():
     for item in recycling_dict:
         product = recycling_dict.get(item)
         records_list.append(product)
+    for i in records_list:
+        print(i)
     return render_template('customer page/recycling_record.html', count=len(records_list), records_list=records_list)
+
 
 @app.route('/contact')
 def contact():
     return render_template('customer page/contact.html')
+
 
 # staff page routes
 @app.route('/staff_dashboard')
