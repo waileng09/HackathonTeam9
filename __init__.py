@@ -17,6 +17,10 @@ def customer_home():
 def recyclingform():
     return render_template('customer page/recycling_page.html')
 
+@app.route('/contact')
+def recyclingform():
+    return render_template('customer page/contact.html')
+
 # staff page routes
 @app.route('/staff_dashboard')
 def staff_dashboard():
