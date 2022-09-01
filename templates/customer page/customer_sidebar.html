@@ -1,0 +1,49 @@
+# links to css and javascripts
+<link href="{{ url_for('static', filename='css/style_staff_navbar.css') }}" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+<body>
+  <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bx-recycle'></i>
+      <span class="logo_name">E-Cycle</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <a href="/CustomerInfo">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">My information</span>
+        </a>
+      </li>
+      <li> <a href="/displayrewards">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">My rewards</span>
+      </a>
+      <li> <a href="/trees">
+          <i class='bx bx-grid-alt' ></i>
+          <span class="link_name">Your Trees</span>
+      </a>
+        </ul>
+<li>
+    <div class="profile-details">
+     <a href="/logout" style="color: #fff; margin-left: 20px;">Logout</a>
+</li>
+</ul>
+  </div>
+</body>
+<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+  arrow[i].addEventListener("click", (e)=>{
+  let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+  arrowParent.classList.toggle("showMenu");
+  });
+  }
+</script>
+</html>
