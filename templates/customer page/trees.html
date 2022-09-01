@@ -7,39 +7,47 @@
 {% include 'customer page/customer_sidebar.html' %}
 {% endblock %}
 <h2>Your Trees</h2>
-<div id="tree1">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
-</div>
-<div id="tree2">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
-</div>
-<div id="tree3">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
-</div>
-<div id="tree4">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
-</div>
-<div id="tree5">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
-</div>
-<div id="tree6">
-  <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+<div class="all-trees">
+  <div id="tree1">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
+  <div id="tree2">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
+  <div id="tree3">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
+  <div id="tree4">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
+  <div id="tree5">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
+  <div id="tree6">
+    <img src="static/img/seed.jpeg">
+    <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+  </div>
 </div>
 
+
 <style>
-  #tree1 {
-    background-color: #8fbc8f;
-    margin-left: 25%;
+  .all-trees {
+  margin-left: 25%;
   }
+
   h2{
     margin: 70px 0px 0px 70px;
   }
+
+  a {
+  text-decoration: none;
+  }
+
   .trees_button{
     margin-top: 1rem;
     display: block;
