@@ -33,12 +33,10 @@
                <img alt="{{i ['profile_img'] }}" src="{{url_for('static',filename='img/upload_img/'+ i ['profile_img'])}}"
                      width="230px" height="150px">
                <br><BR>
-               <form action="/application_approved/{{ i['id'] }}" class="d-inline-block col-5" method="POST">
-                   <input type="hidden" name="uuid" value="{{ i['id'] }}">
+               <form action="/application_approved/{{ i['id'] }}"  method="POST">
+                   <input type="hidden" name="approve" class="d-inline-block col-5" value="approve">
                    <button type="submit" class="btn btn-success">Approve</button>
-               </form>
-               <form action="/application_rejected" class="d-inline-block col-5" method="POST">
-                   <input type="hidden" name="uuid" value="{{ i['id'] }}">
+                   <input type="hidden" name="reject" class="d-inline-block col-5" value="reject">
                    <button type="submit" class="btn btn-danger">Reject</button>
                </form>
            </div>
