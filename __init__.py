@@ -31,8 +31,19 @@ def customer_home():
 
 # start recycling page
 @app.get("/recycling_page")
-def recycling_page():
-    return render_template('customer page/recycling_page.html')
+def page_home(request: Request):
+    db = shelve.open(db_recycle, "c")
+    try:
+        recycling_dict = db["Recycling_database"]
+    except:
+        print("Error in retrieving records from recycling.db .")
+
+    notes = dict(db)  # Retrieval of all the notes
+
+    db.close()
+    return templates.TemplateResponse(
+        "customer page/home.html", {"request": request, "title": "Home", "notes": notes}
+    )
 
 
 # recycling form page
@@ -56,7 +67,7 @@ def create_form():
                                 "description": request.form['description'],
                                 "profile_img": image_1,
                                 "date_created": datetime.now().strftime("%d/%m/%Y %H:%M:%S"),
-                                "status": "Process"
+
                                 }
         db["Recycling_database"] = recycling_dict
         db.close()
@@ -67,7 +78,8 @@ def create_form():
 
 @app.route('/recycling_thank_page')
 def recycling_thank_page():
-    return render_template('customer page/recycling_thank_page.html')
+    return render_template('customer page/recycling_thank_page.html', count=len(records_list),
+                           records_list=records_list)
 
 
 # View record page ( for customer and both also can work)
@@ -106,25 +118,6 @@ def staff_dashboard():
     return render_template('staff page/staff_dashboard.html')
 
 
-# staff view application
-@app.route('/staff_view')
-def staff_view():
-    recycling_dict = {}
-    try:
-        db = shelve.open(db_recycle, "r")
-        recycling_dict = db["Recycling_database"]
-    except:
-        db = shelve.open(db_recycle, "n")
-    db.close()
-    records_list = []
-
-    for item in recycling_dict:
-        product = recycling_dict.get(item)
-        records_list.append(product)
-    return render_template('staff page/staff_view_item.html', records_list=records_list)
-
-
-
 # staff manage application
 @app.route('/staff_manage')
 def staff_manage():
@@ -141,26 +134,6 @@ def staff_manage():
         product = recycling_dict.get(item)
         records_list.append(product)
     return render_template('staff page/staff_manage_item.html', records_list=records_list)
-
-
-@app.route('/application_approved/<id>', methods=['GET', 'POST'])
-def application_approved(id):
-    if request.method == "POST":
-        recycling_dict = {}
-        try:
-            db = shelve.open(db_recycle, "w")
-            recycling_dict = db["Recycling_database"]
-        except:
-            db = shelve.open(db_recycle, "n")
-        db.close()
-        print(id)
-        key = recycling_dict.get(id)
-        key["status"] = "Approved"
-        for item in recycling_dict:
-            product = recycling_dict.get(item)
-            print(product)
-
-    return redirect(url_for('staff_view'))
 
 
 # Tree page
