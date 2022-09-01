@@ -206,7 +206,7 @@ padding: 5px 0;
 
 /* recycling points page css */
     #recyclingpoints-banner h2 {
-    color: #666;
+    color: #317168;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -232,6 +232,7 @@ padding: 5px 0;
   .rp-pic-title span {
   font-weight: bold;
   font-size: 18px;
+  color: #317168;
   }
 
   .img-section {
