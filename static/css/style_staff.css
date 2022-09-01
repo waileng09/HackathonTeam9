@@ -10,7 +10,7 @@ align-items: center;
 justify-content: space-between;
 background-color: #fff;
 padding: 15px 30px;
-border-bottom: 3px solid #594ef7;
+border-bottom: 3px solid #317168;
 }
 
 #interface .navigation .search {
@@ -160,7 +160,7 @@ justify-content: flex-end;
 font-size: 15px;
 font-weight: 400;
 color: #fff;
-background: #0a2558;
+background: #317168;
 padding: 4px 12px;
 border-radius: 4px;
 text-decoration: none;
@@ -168,7 +168,7 @@ transition: all 0.3s ease;
 }
 
 .collected-items .see-all-btn a:hover {
-background: #0d3073;
+background: #013220;
 }
 
 .collected-items .top-item-box .ci-title {

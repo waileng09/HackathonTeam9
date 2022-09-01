@@ -46,6 +46,7 @@ font-size: 40px;
 margin: 0;
 padding-top: 30px;
 letter-spacing: 3px;
+color: #317168;
 }
 
 .content-area p {
@@ -85,13 +86,13 @@ padding: 2rem 0;
 
 .icons-container .icons i {
 font-size: 3.5rem;
-color: #888;
+color: #317168;
 margin-right: 5px;
 }
 
 .icons-container .icons h3 {
 font-size: 2.2rem;
-color: black;
+color: #317168;
 padding-bottom: .2rem;
 }
 
@@ -137,12 +138,12 @@ padding: 5px 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	border: none;
-	background: #a177ff;
+	background: #317168;
 	padding: 6px 15px;
 	margin-top: 5px;
 }
 .carousel .item .btn:hover {
-	background: #8c5bff;
+	background: #013220;
 }
 .carousel .item .btn i {
 	font-size: 14px;
