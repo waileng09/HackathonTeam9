@@ -259,9 +259,6 @@ def user_login():
             if email == customers_dict[key].get_email_address():
                 if password == customers_dict[key].get_password():
                     print("Login successfuly")
-                    session["customerID"] = key
-                    print(session["customerID"])
-                    session['logged_in'] = True
                     # login file
                     login_name = customers_dict[key].get_first_name() + ' ' + customers_dict[key].get_last_name()
                     birthday = customers_dict[key].get_birthday()
@@ -291,6 +288,7 @@ def user_login():
 
         db.close()
     return render_template('customer page/customer_login.html', form=user_login_form)
+
 
 
 # customer info
