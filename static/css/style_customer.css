@@ -297,7 +297,7 @@ padding: 5px 0;
 
 /* contact page css */
     #contactus-banner h2 {
-    color: #666;
+    color: #317168;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -320,7 +320,7 @@ padding: 5px 0;
     }
 
     #contactus .getin h2 {
-    color: #666;
+    color: #317168;
     font-size: 30px;
     font-weight: 600;
     line-height: .8;
@@ -342,7 +342,7 @@ padding: 5px 0;
     }
 
     #contactus .getin h3 {
-    color: #666;
+    color: #317168;
     font-size: 17px;
     font-weight: 600;
     line-height: 26px;
@@ -356,7 +356,7 @@ padding: 5px 0;
     #contactus .getin .getin-details div .get {
     font-size: 17px;
     line-height: 22px;
-    color: #666;
+    color: #317168;
     margin-right: 20px;
     }
 
@@ -382,7 +382,7 @@ padding: 5px 0;
 
     #contactus .form h4 {
     font-size: 24px;
-    color: #666;
+    color: #317168;
     line-height: 30px;
     margin-bottom: 8px;
     }
@@ -434,7 +434,7 @@ padding: 5px 0;
     #contactus .form button {
     font-size: 15px;
     padding: 13px 25px;
-    background-color: #666;
+    background-color: #317168;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -444,7 +444,7 @@ padding: 5px 0;
     }
 
     #contactus .form button:hover {
-    background-color: #666;
+    background-color: #013220;
     }
 
 
