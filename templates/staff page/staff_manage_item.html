@@ -13,29 +13,31 @@
         {% include 'staff page/staff_navbar.html' %}
     {% endblock %}
 
-    <div class="" style="margin-left:20%;">
+    <div class="" >
         {% block content %}
 
-<div class="container">
-   <div class="row mt-2">
+<div class="container" >
+   <div class="row mt-2" style="margin-left:25%;">
        <h3 class="mb-2"></h3>
 
        {% for i in records_list %}
 
        <div class="col-4">
-           <div class="col-12 shadow p-3 mb-3 bg-white rounded">
-               <p class="m-0"><b>Form ID</b>:  {{ i["id"] }}</p>
-               <p class="m-0"><b>Submission Time on</b>:  {{ i["date_created"] }}</p>
-               <p class="m-0"><b>Recycled Location</b>:  {{ i["location"] }}</p>
-               <p class="m-0"><b>Recycled Type</b>:  {{ i["type"] }}</p>
-               <p class="m-0"><b>Recycled Weight</b>:  {{ i["weight"] }} kg</p>
-               <p class="m-0"><b>Description</b>:  {{ i["weight"] }} kg</p>
-               <br>
-               <form action="/application_approved" class="d-inline-block" method="POST">
+           <div class="col-12 shadow-lg p-3 mb-3 bg-white rounded">
+               <p class="m-1"><b>Form ID</b>:  {{ i["id"] }}</p>
+               <p class="m-1"><b>Submission Time on</b>:  {{ i["date_created"] }}</p>
+               <p class="m-1"><b>Recycled Location</b>:  {{ i["location"] }}</p>
+               <p class="m-1"><b>Recycled Type</b>:  {{ i["type"] }}</p>
+               <p class="m-1"><b>Recycled Weight</b>:  {{ i["weight"] }} kg</p>
+               <p class="m-1"><b>Description</b>:  {{ i["description"] }}</p>
+               <img alt="{{i ['profile_img'] }}" src="{{url_for('static',filename='img/upload_img/'+ i ['profile_img'])}}"
+                     width="230px" height="150px">
+               <br><BR>
+               <form action="/application_approved/{{ i['id'] }}" class="d-inline-block col-5" method="POST">
                    <input type="hidden" name="uuid" value="{{ i['id'] }}">
                    <button type="submit" class="btn btn-success">Approve</button>
                </form>
-               <form action="/application_rejected" class="d-inline-block" method="POST">
+               <form action="/application_rejected" class="d-inline-block col-5" method="POST">
                    <input type="hidden" name="uuid" value="{{ i['id'] }}">
                    <button type="submit" class="btn btn-danger">Reject</button>
                </form>
