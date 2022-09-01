@@ -71,9 +71,15 @@ def create_form():
                                 }
         db["Recycling_database"] = recycling_dict
         db.close()
-        return redirect(url_for('retrieve_recycling_record'))
+        return redirect(url_for('recycling_thank_page'))
     return render_template('customer page/recycling_form.html',
                            img_data=encoded_img_data)
+
+
+@app.route('/recycling_thank_page')
+def recycling_thank_page():
+    return render_template('customer page/recycling_thank_page.html', count=len(records_list),
+                           records_list=records_list)
 
 
 # View record page ( for customer and both also can work)
@@ -92,10 +98,7 @@ def retrieve_recycling_record():
         product = recycling_dict.get(item)
         records_list.append(product)
 
-    for i in records_list:
-        print(i["type"])
-
-    return render_template('customer page/recycling_thank_page.html', count=len(records_list),
+    return render_template('customer page/recycling_record.html', count=len(records_list),
                            records_list=records_list)
 
 
@@ -113,6 +116,24 @@ def contact():
 @app.route('/staff_dashboard')
 def staff_dashboard():
     return render_template('staff page/staff_dashboard.html')
+
+
+# staff manage application
+@app.route('/staff_manage')
+def staff_manage():
+    recycling_dict = {}
+    try:
+        db = shelve.open(db_recycle, "r")
+        recycling_dict = db["Recycling_database"]
+    except:
+        db = shelve.open(db_recycle, "n")
+    db.close()
+    records_list = []
+
+    for item in recycling_dict:
+        product = recycling_dict.get(item)
+        records_list.append(product)
+    return render_template('staff page/staff_manage_item.html', records_list=records_list)
 
 
 # Tree page
