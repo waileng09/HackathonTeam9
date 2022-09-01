@@ -1,21 +1,41 @@
 <link href="{{ url_for('static', filename='css/style_customer.css') }}" rel="stylesheet">
-{% extends "customer page/customer_sidebar.html" %}
+{% extends "customer page/customer_base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
-<div id="trees">
-  <h2>Your Trees</h2>
+<h2>Your Trees</h2>
+<div id="tree1">
   <img src="static/img/seed.jpeg">
-  <a href="/recycling_form" ><button id="trees_button">Recycling?</button></a>
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree2">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree3">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree4">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree5">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree6">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
 </div>
 
 <style>
-  div{
-    display: inline-block;
+  #tree1 {
+    background-color: #8fbc8f;
   }
   h2{
     margin: 70px 0px 0px 70px;
   }
-  #trees_button{
+  .trees_button{
     margin-top: 1rem;
     display: block;
     padding: .9rem 3rem;
@@ -27,7 +47,7 @@
     font-weight: 500;
     margin-left: 100px;
   }
-  #trees_button:hover{
+  .trees_button:hover{
     background-color: #219150;
     color: #fff;
   }
