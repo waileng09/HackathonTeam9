@@ -44,6 +44,7 @@ padding: 25px 25px 0 30px;
 font-size: 24px;
 font-weight: bold;
 margin-left: -3%;
+margin-bottom: -1%;
 }
 
 .values {
@@ -139,6 +140,7 @@ font-weight: 500;
 list-style: none;
 margin: 5px 0;
 margin-left: -15%;
+padding: 10px;
 }
 
 .recent-item-box li a {
@@ -181,6 +183,7 @@ margin-left: 20px;
 background-color: #e5e7eb;
 padding: 20px;
 border-radius: 5px;
+margin-right: 1%;
 }
 
 .collected-items .top-item-box li {
