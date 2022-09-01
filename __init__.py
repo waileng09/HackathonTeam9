@@ -167,9 +167,9 @@ def application_approved(id):
 
 
 # Tree page
-@app.route('/tree')
+@app.route('/trees')
 def tree():
-    return render_template('')
+    return render_template('customer page/trees.html')
 
 
 # sign up page

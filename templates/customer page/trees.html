@@ -1,7 +1,11 @@
 <link href="{{ url_for('static', filename='css/style_customer.css') }}" rel="stylesheet">
 {% extends "customer page/customer_base.html" %}
-{% block title %}{% endblock %}
+{% block title %}Users information{% endblock %}
+
 {% block content %}
+{% block navbar %}
+{% include 'customer page/customer_sidebar.html' %}
+{% endblock %}
 <h2>Your Trees</h2>
 <div id="tree1">
   <img src="static/img/seed.jpeg">
@@ -31,6 +35,7 @@
 <style>
   #tree1 {
     background-color: #8fbc8f;
+    margin-left: 25%;
   }
   h2{
     margin: 70px 0px 0px 70px;
