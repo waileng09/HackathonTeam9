@@ -25,7 +25,7 @@ configure_uploads(app, photos)
 
 # customer page routes
 
-# customer home page
+#customer home page
 @app.route('/')
 def customer_home():
     return render_template('customer page/customer_home.html')
