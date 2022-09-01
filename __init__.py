@@ -24,6 +24,8 @@ configure_uploads(app, photos)
 
 
 # customer page routes
+
+# customer home page
 @app.route('/')
 def customer_home():
     return render_template('customer page/customer_home.html')
@@ -101,18 +103,20 @@ def retrieve_recycling_record():
     return render_template('customer page/recycling_record.html', count=len(records_list),
                            records_list=records_list)
 
-
+# recycling point page
 @app.route('/recycling_point')
 def recycling_point():
     return render_template('customer page/recycling_point.html')
 
-
+# contact page
 @app.route('/contact')
 def contact():
     return render_template('customer page/contact.html')
 
 
 # staff page routes
+
+# dashboard (home) page
 @app.route('/staff_dashboard')
 def staff_dashboard():
     return render_template('staff page/staff_dashboard.html')
@@ -135,8 +139,7 @@ def staff_manage():
         records_list.append(product)
     return render_template('staff page/staff_manage_item.html', records_list=records_list)
 
-
-# Tree page
+# tree page
 @app.route('/trees')
 def trees():
     return render_template('customer page/trees.html')
