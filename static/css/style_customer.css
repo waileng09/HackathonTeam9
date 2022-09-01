@@ -7,10 +7,6 @@
     font-family: 'Varela Round', sans-serif;
     }
 
-body{
-
-}
-
 /* home page css */
 .home-wrapper {
 width: 90%;
@@ -19,15 +15,15 @@ text-align: center;
 }
 
 .banner-area {
-background-image: url(/static/img/homepage_banner.jpg);
+background-image: url(/static/img/home_banner.png);
 background-size: cover;
 background-position: center;
 top: 62px;
-height: 70vh;
+height: 85vh;
 width: 100%;
 position: fixed;
 left: 0;
-z-index: -1;
+z-index: -5;
 }
 
 .banner-area h2 {
@@ -38,9 +34,7 @@ text-align: center;
 }
 
 .content-area {
-min-width: 100%;
-margin-left: -1%;
-margin-right: -2%;
+max-width: 100%;
 height: 1300px;
 background-color: #fff;
 margin-top: 550px;
@@ -52,6 +46,7 @@ font-size: 40px;
 margin: 0;
 padding-top: 30px;
 letter-spacing: 3px;
+color: #317168;
 }
 
 .content-area p {
@@ -91,13 +86,13 @@ padding: 2rem 0;
 
 .icons-container .icons i {
 font-size: 3.5rem;
-color: #888;
+color: #317168;
 margin-right: 5px;
 }
 
 .icons-container .icons h3 {
 font-size: 2.2rem;
-color: black;
+color: #317168;
 padding-bottom: .2rem;
 }
 
@@ -143,12 +138,12 @@ padding: 5px 0;
 	text-transform: uppercase;
 	font-weight: bold;
 	border: none;
-	background: #a177ff;
+	background: #317168;
 	padding: 6px 15px;
 	margin-top: 5px;
 }
 .carousel .item .btn:hover {
-	background: #8c5bff;
+	background: #013220;
 }
 .carousel .item .btn i {
 	font-size: 14px;
@@ -211,7 +206,7 @@ padding: 5px 0;
 
 /* recycling points page css */
     #recyclingpoints-banner h2 {
-    color: #666;
+    color: #317168;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -237,6 +232,7 @@ padding: 5px 0;
   .rp-pic-title span {
   font-weight: bold;
   font-size: 18px;
+  color: #317168;
   }
 
   .img-section {
@@ -302,7 +298,7 @@ padding: 5px 0;
 
 /* contact page css */
     #contactus-banner h2 {
-    color: #666;
+    color: #317168;
     font-size: 2.6rem;
     font-weight: 600;
     letter-spacing: 0.5px;
@@ -312,8 +308,8 @@ padding: 5px 0;
     }
 
     #contactus {
-    width: 100%;
-    margin-left: 5%;
+    max-width: 100%;
+    margin-left: 15%;
     padding: 4vw;
     display: flex;
     justify-content: space-between;
@@ -325,7 +321,7 @@ padding: 5px 0;
     }
 
     #contactus .getin h2 {
-    color: #666;
+    color: #317168;
     font-size: 30px;
     font-weight: 600;
     line-height: .8;
@@ -347,7 +343,7 @@ padding: 5px 0;
     }
 
     #contactus .getin h3 {
-    color: #666;
+    color: #317168;
     font-size: 17px;
     font-weight: 600;
     line-height: 26px;
@@ -361,7 +357,7 @@ padding: 5px 0;
     #contactus .getin .getin-details div .get {
     font-size: 17px;
     line-height: 22px;
-    color: #666;
+    color: #317168;
     margin-right: 20px;
     }
 
@@ -387,7 +383,7 @@ padding: 5px 0;
 
     #contactus .form h4 {
     font-size: 24px;
-    color: #666;
+    color: #317168;
     line-height: 30px;
     margin-bottom: 8px;
     }
@@ -439,7 +435,7 @@ padding: 5px 0;
     #contactus .form button {
     font-size: 15px;
     padding: 13px 25px;
-    background-color: #666;
+    background-color: #317168;
     border-radius: 5px;
     outline: none;
     border: none;
@@ -449,7 +445,7 @@ padding: 5px 0;
     }
 
     #contactus .form button:hover {
-    background-color: #666;
+    background-color: #013220;
     }
 
 

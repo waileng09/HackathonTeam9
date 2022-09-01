@@ -1,0 +1,55 @@
+<link href="{{ url_for('static', filename='css/style_customer.css') }}" rel="stylesheet">
+{% extends "customer page/customer_base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<h2>Your Trees</h2>
+<div id="tree1">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree2">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree3">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree4">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree5">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+<div id="tree6">
+  <img src="static/img/seed.jpeg">
+  <a href="/recycling_form" ><button class="trees_button">Recycling?</button></a>
+</div>
+
+<style>
+  #tree1 {
+    background-color: #8fbc8f;
+  }
+  h2{
+    margin: 70px 0px 0px 70px;
+  }
+  .trees_button{
+    margin-top: 1rem;
+    display: block;
+    padding: .9rem 3rem;
+    border-radius: .5rem;
+    color: #fff;
+    background-color: #04AA6D;
+    font-size: 1.7rem;
+    cursor: pointer;
+    font-weight: 500;
+    margin-left: 100px;
+  }
+  .trees_button:hover{
+    background-color: #219150;
+    color: #fff;
+  }
+</style>
+{% endblock %}
