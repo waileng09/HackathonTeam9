@@ -8,7 +8,7 @@ from Form import RecyclingForm
 from functions import Recycling
 from werkzeug.utils import secure_filename
 from flask_uploads import UploadSet, configure_uploads, IMAGES
-from datetime import datetime, timedelta,date
+from datetime import datetime, timedelta, date
 from starlette.requests import Request
 
 app = Flask(__name__)
@@ -22,15 +22,14 @@ app.config['UPLOADED_PHOTOS_DEST'] = "static/img/upload_img"
 photos = UploadSet('photos', IMAGES)
 configure_uploads(app, photos)
 
+
 # customer page routes
 @app.route('/')
 def customer_home():
     return render_template('customer page/customer_home.html')
 
-@app.route('/recycling_page')
-def recyclingform():
-    return render_template('customer page/recycling_page.html')
 
+# start recycling page
 @app.get("/recycling_page")
 def page_home(request: Request):
     db = shelve.open(db_recycle, "c")
@@ -46,6 +45,8 @@ def page_home(request: Request):
         "customer page/home.html", {"request": request, "title": "Home", "notes": notes}
     )
 
+
+# recycling form page
 @app.route('/recycling_form', methods=['GET', 'POST'])
 def create_form():
     encoded_img_data = ""
@@ -75,6 +76,7 @@ def create_form():
                            img_data=encoded_img_data)
 
 
+# View record page ( for customer and both also can work)
 @app.route('/recycling_record')
 def retrieve_recycling_record():
     recycling_dict = {}
@@ -93,8 +95,9 @@ def retrieve_recycling_record():
     for i in records_list:
         print(i["type"])
 
-    return render_template('customer page/recycling_record.html', count=len(records_list),
+    return render_template('customer page/recycling_thank_page.html', count=len(records_list),
                            records_list=records_list)
+
 
 @app.route('/recycling_point')
 def recycling_point():
@@ -117,10 +120,11 @@ def staff_dashboard():
 def tree():
     return render_template('')
 
-#sign up page
+
+# sign up page
 @app.route('/createCustomer', methods=['GET', 'POST'])
 def create_user():
-    #fix the counting
+    # fix the counting
     db = shelve.open('customer.db', 'r')
     customers_dict = db['Customers']
     if len(customers_dict) > 0:
@@ -129,7 +133,7 @@ def create_user():
         total_count = x + 1
     else:
         total_count = 1
-    #total_count = len(customers_dict)+1
+    # total_count = len(customers_dict)+1
     create_customer_form = CreateCustomerForm(request.form)
     print(create_customer_form)
     if request.method == 'POST':
@@ -145,8 +149,9 @@ def create_user():
             last_login = datetime.now()
             status = True
             customer = Customer.Customer(create_customer_form.first_name.data, create_customer_form.last_name.data,
-                                     create_customer_form.email_address.data,
-                                     create_customer_form.password.data, create_customer_form.password2.data, create_customer_form.type.data, create_customer_form.birthday.data)
+                                         create_customer_form.email_address.data,
+                                         create_customer_form.password.data, create_customer_form.password2.data,
+                                         create_customer_form.type.data, create_customer_form.birthday.data)
 
             from flask import session
             session['logged_in'] = True
@@ -156,8 +161,7 @@ def create_user():
                 customers_dict[customer.get_customer_id()] = customer
                 db['Customers'] = customers_dict
 
-
-                #login file
+                # login file
                 login_file = open('login.txt', 'w')
                 email = customer.get_email_address()
                 birthday = customer.get_birthday()
@@ -175,19 +179,18 @@ def create_user():
             from flask import flash
             flash("password is different", category='error')
             return render_template('customer page/create_acc.html', form=create_customer_form)
-        #fix
+        # fix
         customer.set_customer_id(total_count)
         customers_dict[customer.get_customer_id()] = customer
         db['Customers'] = customers_dict
 
         db.close()
 
-
-
         print('retrieve')
     return render_template('customer page/create_acc.html', form=create_customer_form)
 
-#login page
+
+# login page
 @app.route('/CustomerLogin', methods=['GET', 'POST'])
 def user_login():
     print('ok')
@@ -224,7 +227,7 @@ def user_login():
                     print(month)
 
                     if customers_dict[key].get_type() == 'Customer':
-                       return redirect(url_for('customer_info'))
+                        return redirect(url_for('customer_info'))
 
                     else:
                         return redirect(url_for('staff_dashboard'))
@@ -238,7 +241,8 @@ def user_login():
         db.close()
     return render_template('customer page/customer_login.html', form=user_login_form)
 
-#customer info
+
+# customer info
 @app.route('/CustomerInfo')
 def customer_info():
     login_file = open('login.txt', 'r')
@@ -247,14 +251,16 @@ def customer_info():
     birthday = login_file.readline()
     print(name + email + birthday)
     login_file.close()
-    return render_template('customer page/customer_info.html', name = name, email = email, birthday = birthday)
+    return render_template('customer page/customer_info.html', name=name, email=email, birthday=birthday)
 
-#reward display(customer side)
+
+# reward display(customer side)
 @app.route('/displayrewards')
 def display_rewards():
     return render_template('customer page/customer_rewards.html')
 
-#logout
+
+# logout
 @app.route('/logout')
 def logout():
     return render_template('customer page/customer_home.html')
