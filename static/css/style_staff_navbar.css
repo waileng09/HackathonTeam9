@@ -12,7 +12,7 @@
   left: 0;
   height: 100%;
   width: 310px;
-  background: #11101d;
+  background: #317168;
   z-index: 100;
   transition: all 0.5s ease;
   padding-top: 10px;
@@ -26,7 +26,7 @@
 }
 .sidebar .logo-details i{
   font-size: 30px;
-color: #317168;
+  color: #fff;
   height: 50px;
   min-width: 78px;
   text-align: center;
@@ -34,7 +34,7 @@ color: #317168;
 }
 .sidebar .logo-details .logo_name{
   font-size: 22px;
-  color: #317168;
+  color: #fff;
   font-weight: 600;
   transition: 0.3s ease;
   transition-delay: 0.1s;
@@ -61,7 +61,7 @@ color: #317168;
   transition: all 0.4s ease;
 }
 .sidebar .nav-links li:hover{
-  background: #1d1b31;
+  background: #00887b;
 }
 .sidebar .nav-links li .iocn-link{
   display: flex;
@@ -105,7 +105,7 @@ color: #317168;
 .sidebar .nav-links li .sub-menu{
   padding: 6px 6px 14px 80px;
   margin-top: -10px;
-  background: #1d1b31;
+  background: #00887b;
   display: none;
 }
 .sidebar .nav-links li.showMenu .sub-menu{
@@ -166,7 +166,7 @@ color: #317168;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #1d1b31;
+  background: #00887b;
   padding: 12px 0;
   transition: all 0.5s ease;
 }
@@ -180,7 +180,7 @@ color: #317168;
   object-fit: cover;
   border-radius: 16px;
   margin: 0 14px 0 12px;
-  background: #1d1b31;
+  background: #fff;
   transition: all 0.5s ease;
 }
 
