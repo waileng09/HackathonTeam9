@@ -137,9 +137,9 @@ def staff_manage():
 
 
 # Tree page
-@app.route('/tree')
-def tree():
-    return render_template('')
+@app.route('/trees')
+def trees():
+    return render_template('customer page/trees.html')
 
 
 # sign up page
